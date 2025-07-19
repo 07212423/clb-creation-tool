@@ -73,7 +73,7 @@ app.post('/api/create-load-balancer', (req, res) => {
 */
 
 // --- Handle React routing, return all other requests to the React app ---
-app.get('/*', (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'antd-demo', 'build', 'index.html'));
 });
 
