@@ -1,5 +1,5 @@
 const express = require('express');
-const { exec } = require('child_process');
+// const { exec } = require('child_process'); // Disabled for production
 const cors = require('cors');
 const path = require('path');
 
@@ -13,18 +13,25 @@ app.use(express.json());
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'antd-demo', 'build')));
 
-// --- API Endpoints ---
-
+// --- API Endpoints (Disabled for production) ---
+/*
 const executeScript = (scriptPath, args, res, isCreate = false) => {
-  const commandArgs = args.map((arg, index) => (isCreate && index === 3) ? `'${arg}'` : arg);
+  const commandArgs = args.map((arg, index) => (isCreate && index === 3) ? `'''${arg}'''` : arg);
   const command = `sh ${scriptPath} ${commandArgs.join(' ')}`;
   
-  console.log(`\n[INFO] Executing command: ${command}`);
+  console.log(`
+[INFO] Executing command: ${command}`);
 
   exec(command, (error, stdout, stderr) => {
-    console.log(`[DEBUG] Raw stdout from ${scriptPath}:\n---BEGIN STDOUT---\n${stdout}\n---END STDOUT---`);
+    console.log(`[DEBUG] Raw stdout from ${scriptPath}:
+---BEGIN STDOUT---
+${stdout}
+---END STDOUT---`);
     if (stderr) {
-        console.error(`[DEBUG] Raw stderr from ${scriptPath}:\n---BEGIN STDERR---\n${stderr}\n---END STDERR---`);
+        console.error(`[DEBUG] Raw stderr from ${scriptPath}:
+---BEGIN STDERR---
+${stderr}
+---END STDERR---`);
     }
 
     if (error) {
@@ -63,6 +70,7 @@ app.post('/api/create-load-balancer', (req, res) => {
     if (!secretId || !secretKey || !region || !payload) return res.status(400).json({ error: 'Missing required parameters' });
     executeScript('./CreateLoadBalancer.sh', [secretId, secretKey, region, JSON.stringify(payload)], res, true);
 });
+*/
 
 // --- Handle React routing, return all other requests to the React app ---
 app.get('*', (req, res) => {

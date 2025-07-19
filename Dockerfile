@@ -23,9 +23,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --production
 
-# Copy backend server code and shell scripts
+# Copy backend server code
 COPY server.js ./
-COPY CreateLoadBalancer.sh DescribeSubnets.sh DescribeVpcs.sh ./
 
 # Copy the built frontend from the build stage
 COPY --from=build /app/antd-demo/build ./antd-demo/build
