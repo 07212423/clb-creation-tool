@@ -22,7 +22,7 @@ const regions = [
   { name: '法兰克福', value: 'eu-frankfurt' },
 ];
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = '/api';
 
 const App = () => {
   const [current, setCurrent] = useState(0);
