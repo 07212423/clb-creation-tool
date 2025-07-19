@@ -21,6 +21,7 @@ WORKDIR /app
 
 # Install dependencies for the backend server
 COPY package.json package-lock.json ./
+RUN apk add --no-cache openssl curl
 RUN npm install --production
 
 # Copy backend server code and shell scripts
