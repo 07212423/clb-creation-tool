@@ -12,6 +12,7 @@ algorithm="TC3-HMAC-SHA256"
 timestamp=$(date +%s)
 date=$(date -u -d @$timestamp +"%Y-%m-%d")
 payload="$4"
+modified_payload=$(echo "$4" | jq '. + { "AdvancedRoute": true }')
 
 # ************* 步骤 1：拼接规范请求串 *************
 http_request_method="POST"

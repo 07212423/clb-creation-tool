@@ -76,6 +76,7 @@ const AntdLoadBalancerExample = () => {
     { value: 'ap-bangkok', label: '亚太东南（曼谷）' },
     { value: 'na-siliconvalley', label: '美国西部（硅谷）' },
     { value: 'eu-frankfurt', label: '欧洲地区（法兰克福）' },
+    { value: 'ap-qingyuan', label: '清远' },
   ];
 
   const fetchVpcs = async (currentSecretId, currentSecretKey, currentRegion) => {

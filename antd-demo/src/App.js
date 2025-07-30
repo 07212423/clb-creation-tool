@@ -20,6 +20,7 @@ const regions = [
   { name: '硅谷（美西）', value: 'na-siliconvalley' },
   { name: '弗吉尼亚（美东）', value: 'na-ashburn' },
   { name: '法兰克福', value: 'eu-frankfurt' },
+  { name: '清远', value: 'ap-qingyuan' },
 ];
 
 const API_BASE_URL = '/api';
@@ -119,6 +120,7 @@ const App = () => {
         ProjectId: 0,
         AddressIPVersion: 'IPV4',
         Number: 1,
+        AdvancedRoute: true,
     };
 
     if (networkType === 'INTERNAL') {
